@@ -26,7 +26,7 @@ pub fn build_proverb_2(list: Vec<&str>) -> String {
     let last = if list.len() < 3 {""} else {"horseshoe "};
     let iter = list.iter().peekable();
 
-    for item in iter {
+    while let Some(item) = iter.next() {
         if let Some(next_string) = iter.peek() {
             resp.push_str(&format!("For want of a {} the {} was lost.\n", item, next_string));
         } else {
